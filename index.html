@@ -781,6 +781,33 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
 /* ---- мятая бумага на светлых блоках (кроме меню и футера); края плавно растворяются, швов нет ---- */
 .cr{position:absolute;inset:0;z-index:0;pointer-events:none;background:url(assets/img/crumple.webp) center top/min(760px,150vw) auto repeat;opacity:.42;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 160px,#000 calc(100% - 160px),transparent 100%)}
 @media(max-width:719px){.cr{opacity:.4}}
+
+/* ---- v3.3 мобильные правки ---- */
+.facts span{overflow-wrap:anywhere}
+.mcta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px}
+.cov .af-card .go{background:var(--clay);color:var(--paper);padding:0 28px;min-height:46px;line-height:46px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:background .25s}
+.cov .af-card .go:hover{background:var(--ink);color:var(--paper)}
+.vids{align-items:center;justify-content:flex-start}
+.vids .vcard{transform:scale(.84);opacity:.7;transition:transform .5s var(--ease),opacity .4s}
+.vids .vcard.act,.vids .vcard.playing{transform:scale(1);opacity:1}
+@media(max-width:719px){
+ .hero{min-height:0;padding:104px 0 44px}
+ .hero .frame{bottom:12px}
+ .facts span{font-size:11px;letter-spacing:.05em}
+ .facts .it{padding:26px 16px}
+ .menu{padding-bottom:64px}
+ .menu .vcard{margin-left:auto;margin-right:auto}
+ .menu .row{margin-top:44px;text-align:center}
+ .pband{height:260px}
+ .bar{padding-bottom:64px}
+ .ev{padding-bottom:64px}
+ .rev{padding-top:24px;padding-bottom:56px}
+ .find{padding-bottom:32px}
+ .vids{margin:0 -20px;padding:6px 0 16px;scroll-padding:0 13vw}
+ .vids:before,.vids:after{content:"";flex:0 0 calc(13vw - 16px)}
+ .vids .vcard{width:74vw;max-width:340px;scroll-snap-align:center}
+}
+@media(min-width:720px){.vids{gap:0;max-width:880px;margin-left:auto;margin-right:auto}.vids .vcard{flex:1}.vids .vcard.act{flex:1.35}.vids .vcard:not(.act){transform:scale(.88)}}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Где находится ресторан и как найти вход?", "acceptedAnswer": {"@type": "Answer", "text": "Адрес: 142000, Домодедово, мкр. Западный, ул. Лунная, стр. 4, 3 этаж. Вход через бизнес-центр «Лунная Line»."}}, {"@type": "Question", "name": "Есть ли парковка?", "acceptedAnswer": {"@type": "Answer", "text": "Да, парковка находится рядом с бизнес-центром."}}, {"@type": "Question", "name": "Как забронировать стол?", "acceptedAnswer": {"@type": "Answer", "text": "Заполните форму на сайте, позвоните или напишите в Telegram. Укажите дату, время и число гостей, мы подтвердим бронь."}}, {"@type": "Question", "name": "Можно ли выбрать веранду?", "acceptedAnswer": {"@type": "Answer", "text": "Да, напишите «веранда» в комментарии к заявке. Веранда летняя, наличие мест мы уточним при подтверждении брони."}}, {"@type": "Question", "name": "Проводите ли вы банкеты и дни рождения?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Подберём зал и стол, составим меню под повод и подключим музыку. Условия расскажем по телефону."}}, {"@type": "Question", "name": "Бывает ли живая музыка?", "acceptedAnswer": {"@type": "Answer", "text": "По вечерам играют диджеи и приглашённые музыканты. Программу уточняйте у администратора."}}, {"@type": "Question", "name": "До скольки работает кухня?", "acceptedAnswer": {"@type": "Answer", "text": "Пн-Чт кухня работает до 22:00, Пт-Вс до 23:00. Зал открыт Пн-Чт до 23:00, Пт-Вс до 01:00."}}]}
@@ -876,9 +903,6 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
     <p class="lead rv">Завтраки, обеды и ужины: от лёгких закусок до горячего и десертов.</p>
    </div>
   </div>
-  <div class="tabs rv" role="tablist" aria-label="Разделы меню">
-   <button class="tab on" role="tab" aria-selected="true" data-f="all">Все блюда</button><button class="tab" role="tab" aria-selected="false" data-f="brk">Завтраки</button><button class="tab" role="tab" aria-selected="false" data-f="zak">Закуски и салаты</button><button class="tab" role="tab" aria-selected="false" data-f="fin">Горячее и десерты</button>
-  </div>
   <div class="dscroll">
    <figure class="dish rv" data-cat="zak"><div class="im"><img src="assets/img/d01.webp" srcset="assets/img/s/d01.webp 640w, assets/img/d01.webp 1536w" sizes="(min-width:900px) 420px,80vw" alt="Карпаччо из говядины" loading="lazy" width="1536" height="1024"></div><div class="cap"><span class="n">01</span><h3 class="dc">Карпаччо из говядины</h3></div></figure>
    <figure class="dish rv" data-cat="fin"><div class="im"><img src="assets/img/d02.webp" srcset="assets/img/s/d02.webp 640w, assets/img/d02.webp 1254w" sizes="(min-width:900px) 420px,80vw" alt="Лосось со свёклой" loading="lazy" width="1254" height="1254"></div><div class="cap"><span class="n">02</span><h3 class="dc">Лосось со свёклой</h3></div></figure>
@@ -889,12 +913,12 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
    <figure class="dish rv" data-cat="brk"><div class="im"><img src="assets/img/d12.webp" srcset="assets/img/s/d12.webp 640w, assets/img/d12.webp 1200w" sizes="(min-width:900px) 420px,80vw" alt="Омлет с креветками" loading="lazy" width="1200" height="1200"></div><div class="cap"><span class="n">07</span><h3 class="dc">Омлет с креветками</h3></div></figure>
    <figure class="dish rv" data-cat="fin"><div class="im"><img src="assets/img/d13.webp" srcset="assets/img/s/d13.webp 640w, assets/img/d13.webp 1536w" sizes="(min-width:900px) 420px,80vw" alt="Крем-брюле" loading="lazy" width="1536" height="1024"></div><div class="cap"><span class="n">08</span><h3 class="dc">Крем&#8209;брюле</h3></div></figure>
   </div>
+  <div class="mcta rv"><a class="btn btn-solid" href="https://vida-calma.ru/menu/" target="_blank" rel="noopener" data-goal="menu_click">Полное меню</a><a class="btn btn-line" href="https://vida-calma.ru/menu/coctails/" target="_blank" rel="noopener" data-goal="cocktails_click">Напитки и вино</a></div>
   <div class="row">
    <div class="vcard rv" data-v="v3864" tabindex="0" role="button" aria-label="Смотреть видео: как готовим"><img src="assets/video/v3864.jpg" alt="" loading="lazy" width="540" height="960"><span class="play"></span><span class="cap">Как готовим</span></div>
    <div>
     <h3 class="rv" style="font-size:clamp(30px,6vw,46px);margin-bottom:16px">Готовим на <em>открытой</em> кухне</h3>
     <p class="lead rv">Огонь горелки, свежие морепродукты и ручная подача. Смотрите, как рождаются блюда, и приходите попробовать.</p>
-    <div class="btns rv"><a class="btn btn-solid" href="https://vida-calma.ru/menu/" target="_blank" rel="noopener" data-goal="menu_click">Смотреть полное меню</a></div>
    </div>
   </div>
  </div>
@@ -1015,7 +1039,7 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
    <div class="wine ill"><img src="assets/ill/wine-ink.webp" alt="Гравюра: бутылка и бокал вина" loading="lazy" width="813" height="1083"></div>
   </div>
  <div class="afisha rv">
-   <div class="af-h"><h3>Афиша <em>вечеров</em></h3><div class="af-nav"><button class="af-b" type="button" data-d="-1" aria-label="Назад"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="af-b" type="button" data-d="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+   <div class="af-h"><h3>Афиша <em>вечеров</em></h3></div>
    <div class="cov" id="cov" tabindex="0" aria-roledescription="карусель" aria-label="Афиша вечеров"><a class="af-card" data-date="2026-06-17" href="#booking" data-goal="booking_click" data-event="1"><div class="ph"><img src="assets/img/p1.webp" alt="Афиша: Вечер вкусов. Дегустация, среда, 17 июня, 19:00–21:00" loading="lazy" width="800" height="1200"></div><h4>Вечер вкусов. Дегустация</h4><p class="dt">среда, 17 июня, 19:00–21:00</p><span class="go lnk">Записаться</span></a><a class="af-card" data-date="2026-04-29" href="#booking" data-goal="booking_click" data-event="1"><div class="ph"><img src="assets/img/p2.webp" alt="Афиша: DJ set, среда, 29 апреля, 19:00–22:00" loading="lazy" width="800" height="1067"></div><h4>DJ set</h4><p class="dt">среда, 29 апреля, 19:00–22:00</p><span class="go lnk">Записаться</span></a><a class="af-card" data-date="2026-05-01" href="#booking" data-goal="booking_click" data-event="1"><div class="ph"><img src="assets/img/p3.webp" alt="Афиша: Винное казино, пятница, 1 мая, 20:00" loading="lazy" width="800" height="1067"></div><h4>Винное казино</h4><p class="dt">пятница, 1 мая, 20:00</p><span class="go lnk">Записаться</span></a><a class="af-card" data-date="2026-04-30" href="#booking" data-goal="booking_click" data-event="1"><div class="ph"><img src="assets/img/p4.webp" alt="Афиша: Грузинские вина, четверг, 30 апреля, 20:00" loading="lazy" width="800" height="1067"></div><h4>Грузинские вина</h4><p class="dt">четверг, 30 апреля, 20:00</p><span class="go lnk">Записаться</span></a></div>
   </div>
   <div class="vids">
@@ -1496,6 +1520,18 @@ f.addEventListener('submit',function(e){
 
 /* крупная гравюра с полем: на широких экранах подменяем облегчённый файл на полный */
 (function(){var i=document.getElementById('lmi');if(i&&innerWidth>=720){var m=new Image();m.onload=function(){i.setAttribute('href','assets/ill/land-ink.webp')};m.src='assets/ill/land-ink.webp'}})();
+
+/* ролики: центральный/играющий крупнее */
+(function(){var v=document.querySelector('.vids');if(!v)return;var cs=[].slice.call(v.querySelectorAll('.vcard'));if(cs.length<2)return;
+ function set(c){cs.forEach(function(x){x.classList.toggle('act',x===c)})}
+ function near(){var r=v.getBoundingClientRect(),m=r.left+r.width/2,b=cs[0],d=1e9;cs.forEach(function(c){var q=c.getBoundingClientRect(),k=Math.abs(q.left+q.width/2-m);if(k<d){d=k;b=c}});return b}
+ var mob=matchMedia('(max-width:719px)');
+ set(cs[1]);
+ function init(){if(mob.matches){var c=cs[1];v.scrollLeft=c.offsetLeft-(v.clientWidth-c.offsetWidth)/2;set(near())}else set(cs[1])}
+ init();addEventListener('load',init);
+ v.addEventListener('scroll',function(){if(mob.matches)set(near())},{passive:true});
+ cs.forEach(function(c){c.addEventListener('click',function(){set(c)});c.addEventListener('mouseenter',function(){if(!mob.matches)set(c)})});
+})();
 </script>
 </body>
 </html>
