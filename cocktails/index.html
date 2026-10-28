@@ -884,6 +884,9 @@ body{background:var(--paper)}
 @media(min-width:900px){.mhero{min-height:70svh;padding:170px 0 80px}.mhero .frame{top:112px;left:22px;right:22px;bottom:22px}
  .mcta2 .gl{position:absolute;margin:0;top:50%;transform:translateY(-50%);height:min(240px,72%)}.mcta2 .gl1{left:max(16px,calc(50% - 700px))}.mcta2 .gl2{display:block;right:max(16px,calc(50% - 700px))}}
 /* бар */
+@media(min-width:900px){.mcta2 .gl{height:min(190px,64%)!important}}
+.mland{max-width:none;width:100%;margin:56px 0 0;padding:0;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 42%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 42%,transparent 100%)}
+.mland+.msec{margin-top:-4vw}
 .mi .im{aspect-ratio:4/5}
 .mi .soon{position:absolute;inset:0;background:var(--paper2);display:grid;place-items:center;text-align:center;padding:24px}
 .mi .soon span{font-family:var(--serif);font-style:italic;font-size:clamp(18px,5vw,26px);color:var(--mute);text-wrap:balance}
@@ -932,7 +935,7 @@ body{background:var(--paper)}
 <!-- ЗАМЕНИТЬ: у «Клевер Клаб» нет цены (не было на скриншоте); фото «Виски Сауэр б/а» ещё нет (плашка «Уже фотографируем»); фото чаёв вырезаны из скриншота, нужны оригиналы; винная карта не добавлена -->
 <section class="msec" id="cocktails">
  <div class="wrap">
-  <div class="mh"><h2 class="rv">Коктейли <small>07</small></h2><div class="mill rv" style="--d:.1s"><img src="../assets/ill/menu-wine.webp" alt="" loading="lazy" width="390" height="520"></div></div>
+  <div class="mh"><h2 class="rv">Коктейли <small>07</small></h2><div class="mill rv" style="--d:.1s"><img src="../assets/ill/menu-cock.webp" alt="" loading="lazy" width="560" height="548"></div></div>
   <div class="mgrid">
 <figure class="mi rv" style="--d:0.00s"><div class="im"><img src="../assets/img/s/c8.webp" srcset="../assets/img/s/c8.webp 640w, ../assets/img/c8.webp 1086w" sizes="(min-width:1100px) 25vw,(min-width:720px) 33vw,50vw" alt="Негрони" loading="lazy" width="640" height="853"></div><figcaption class="tx"><h3>Негрони</h3><p class="ds">насыщенный коктейль с цитрусовой горчинкой, травяными нотами и сухим джином</p><span class="pr">750&nbsp;₽</span></figcaption></figure>
 <figure class="mi rv" style="--d:0.06s"><div class="im"><img src="../assets/img/s/c4.webp" srcset="../assets/img/s/c4.webp 640w, ../assets/img/c4.webp 1086w" sizes="(min-width:1100px) 25vw,(min-width:720px) 33vw,50vw" alt="Апероль Спритц" loading="lazy" width="640" height="853"></div><figcaption class="tx"><h3>Апероль Спритц</h3><p class="ds">освежающий аперитив с апельсиновыми нотами, лёгкой травяной горчинкой и игристым</p><span class="pr">790&nbsp;₽</span></figcaption></figure>
@@ -946,7 +949,7 @@ body{background:var(--paper)}
 </section>
 <section class="msec" id="zero">
  <div class="wrap">
-  <div class="mh"><h2 class="rv">Безалкогольные <small>03</small></h2><div class="mill rv" style="--d:.1s"><img src="../assets/ill/menu-art.webp" alt="" loading="lazy" width="479" height="480"></div></div>
+  <div class="mh"><h2 class="rv">Безалкогольные <small>03</small></h2><div class="mill rv" style="--d:.1s"><img src="../assets/ill/menu-highball.webp" alt="" loading="lazy" width="493" height="560"></div></div>
   <div class="mgrid">
 <figure class="mi rv" style="--d:0.00s"><div class="im"><img src="../assets/img/s/c1.webp" srcset="../assets/img/s/c1.webp 640w, ../assets/img/c1.webp 1086w" sizes="(min-width:1100px) 25vw,(min-width:720px) 33vw,50vw" alt="Клевер Клаб б/а" loading="lazy" width="640" height="853"></div><figcaption class="tx"><h3>Клевер Клаб б/а</h3><p class="ds">ягодный безалкогольный коктейль с малиной, цитрусовой свежестью и бархатистой текстурой</p><span class="pr">790&nbsp;₽</span></figcaption></figure>
 <figure class="mi rv" style="--d:0.06s"><div class="im"><div class="soon"><span>Уже фотографируем</span></div></div><figcaption class="tx"><h3>Виски Сауэр б/а</h3><p class="ds">мягкий безалкогольный коктейль с характером виски, цитрусовой свежестью и воздушной текстурой</p><span class="pr">750&nbsp;₽</span></figcaption></figure>
@@ -954,7 +957,7 @@ body{background:var(--paper)}
   </div>
  </div>
 </section>
-<div class="mland rv" aria-hidden="true"><img src="../assets/ill/menu-terr.webp" alt="" loading="lazy" width="1000" height="588"></div>
+<div class="mland rv" aria-hidden="true"><img src="../assets/ill/terr-wide-m.webp" srcset="../assets/ill/terr-wide-m.webp 900w, ../assets/ill/terr-wide.webp 1800w" sizes="100vw" alt="" loading="lazy" width="1800" height="1057"></div>
 <section class="msec" id="tea">
  <div class="wrap">
   <div class="mh"><h2 class="rv">Чай <small>03</small></h2><div class="mill rv" style="--d:.1s"><img src="../assets/ill/menu-grapes.webp" alt="" loading="lazy" width="361" height="480"></div></div>
@@ -968,8 +971,8 @@ body{background:var(--paper)}
 
 <div class="wrap"><p class="mnote">Карта может меняться. Состав и крепость коктейлей подскажет бариста.</p></div>
 <section class="mcta2 dark">
- <img class="gl gl1" src="../assets/ill/menu-lemon-l.webp" alt="" loading="lazy" width="431" height="480">
- <img class="gl gl2" src="../assets/ill/grapes-light-m.webp" alt="" loading="lazy" width="520" height="690">
+ <img class="gl gl1" src="../assets/ill/menu-cock-l.webp" alt="" loading="lazy" width="480" height="470">
+ <img class="gl gl2" src="../assets/ill/menu-highball-l.webp" alt="" loading="lazy" width="422" height="480">
  <div class="wrap">
   <h2>К коктейлям — <em>блюда нашей кухни</em></h2>
   <p>Выберите стол в зале или на веранде на крыше и закажите ужин к любимому напитку.</p>
