@@ -808,6 +808,13 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
  .vids .vcard{width:74vw;max-width:340px;scroll-snap-align:center}
 }
 @media(min-width:720px){.vids{gap:0;max-width:880px;margin-left:auto;margin-right:auto}.vids .vcard{flex:1}.vids .vcard.act{flex:1.35}.vids .vcard:not(.act){transform:scale(.88)}}
+
+/* липкая кнопка звонка */
+.sticky{left:auto;right:16px;bottom:16px;display:block;pointer-events:none}
+.sticky .fab{pointer-events:auto;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--clay);color:var(--paper);box-shadow:0 10px 26px -6px rgba(34,29,25,.55);transition:background .25s,transform .25s}
+.sticky .fab svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6}
+.sticky .fab:hover{background:var(--ink)}.sticky .fab:active{transform:scale(.94)}
+.sticky.hide{transform:translateY(140%)}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Где находится ресторан и как найти вход?", "acceptedAnswer": {"@type": "Answer", "text": "Адрес: 142000, Домодедово, мкр. Западный, ул. Лунная, стр. 4, 3 этаж. Вход через бизнес-центр «Лунная Line»."}}, {"@type": "Question", "name": "Есть ли парковка?", "acceptedAnswer": {"@type": "Answer", "text": "Да, парковка находится рядом с бизнес-центром."}}, {"@type": "Question", "name": "Как забронировать стол?", "acceptedAnswer": {"@type": "Answer", "text": "Заполните форму на сайте, позвоните или напишите в Telegram. Укажите дату, время и число гостей, мы подтвердим бронь."}}, {"@type": "Question", "name": "Можно ли выбрать веранду?", "acceptedAnswer": {"@type": "Answer", "text": "Да, напишите «веранда» в комментарии к заявке. Веранда летняя, наличие мест мы уточним при подтверждении брони."}}, {"@type": "Question", "name": "Проводите ли вы банкеты и дни рождения?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Подберём зал и стол, составим меню под повод и подключим музыку. Условия расскажем по телефону."}}, {"@type": "Question", "name": "Бывает ли живая музыка?", "acceptedAnswer": {"@type": "Answer", "text": "По вечерам играют диджеи и приглашённые музыканты. Программу уточняйте у администратора."}}, {"@type": "Question", "name": "До скольки работает кухня?", "acceptedAnswer": {"@type": "Answer", "text": "Пн-Чт кухня работает до 22:00, Пт-Вс до 23:00. Зал открыт Пн-Чт до 23:00, Пт-Вс до 01:00."}}]}
@@ -1167,10 +1174,7 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
  <img class="fart" src="assets/ill/terrace-ink.webp" srcset="assets/ill/terrace-ink-m.webp 900w, assets/ill/terrace-ink.webp 1800w" sizes="100vw" alt="" loading="eager" decoding="async" width="1800" height="1057">
 </footer>
 
-<div class="sticky" id="sticky">
- <a class="btn c" href="tel:+70000000000" data-goal="phone_click">Позвонить</a>
- <a class="btn btn-solid" href="#booking" data-goal="booking_click">Забронировать</a>
-</div>
+<div class="sticky" id="sticky"><a class="fab" href="tel:+70000000000" aria-label="Позвонить" data-goal="phone_click"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></a></div>
 
 <script>
 (function(){
