@@ -900,6 +900,8 @@ main{overflow-x:clip}
 @media(min-width:900px){.mnav .wrap{justify-content:center}}
 
 @media(max-width:719px){.mill,.mland,.mcta2 .gl{display:none!important}}
+.mi .im img{inset:auto;left:0;top:-10%;height:120%;translate:0 calc(var(--p,0)*8%);will-change:translate}
+@media(prefers-reduced-motion:reduce){.mi .im img{top:0;height:100%;translate:none}}
 </style>
 </head>
 <body>
@@ -1158,6 +1160,13 @@ var tk=false;addEventListener('scroll',function(){if(!tk){tk=true;requestAnimati
  addEventListener('scroll',function(){if(!raf)pos=scrollY},{passive:true});
  addEventListener('keydown',function(){v=tv=0});
 })();
+</script>
+<script>
+(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+var ims=[].slice.call(document.querySelectorAll('.mi .im')),t=0;
+function upd(){t=0;var vh=innerHeight;for(var i=0;i<ims.length;i++){var r=ims[i].getBoundingClientRect();if(r.bottom<-50||r.top>vh+50)continue;var p=((r.top+r.height/2)-vh/2)/(vh/2+r.height/2);p=Math.max(-1,Math.min(1,p));ims[i].firstElementChild.style.setProperty('--p',p.toFixed(3))}}
+function q(){if(!t)t=requestAnimationFrame(upd)}
+addEventListener('scroll',q,{passive:true});addEventListener('resize',q);upd();})();
 </script>
 </body>
 </html>
