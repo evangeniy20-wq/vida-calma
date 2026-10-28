@@ -749,12 +749,10 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
 @media(max-width:600px){footer{padding-top:64px}footer .fart{margin-top:30px}}
 
 /* гравюра футера открывается сверху вниз */
-.js footer .fart{clip-path:inset(0 0 100% 0);transition:clip-path 2s var(--ease)}
-.js footer .fart.in{clip-path:inset(0)}
-@media (prefers-reduced-motion:reduce){.js footer .fart{clip-path:none}}
 
 .land svg{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(180deg,#000 40%,transparent 100%);mask-image:linear-gradient(180deg,#000 40%,transparent 100%)}
 .land:after{display:none!important}
+.wine.ill:after{display:none!important}
 .js .land svg{opacity:0;transition:opacity 1.2s var(--ease)}
 .js .land.in svg{opacity:1}
 @media (prefers-reduced-motion:reduce){.js .land svg{opacity:1}}
@@ -1140,7 +1138,7 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
   <div class="soc"><a href="https://t.me/vidacalma" target="_blank" rel="noopener" data-goal="messenger_click">Telegram</a><a href="https://vk.com/vidacalma" target="_blank" rel="noopener">ВКонтакте</a><a href="https://yandex.ru/maps/10725/domodedovo/?from=api-maps&amp;ll=37.753016%2C55.429434&amp;mode=routes&amp;rtext=~55.429519%2C37.752890" target="_blank" rel="noopener">Яндекс Карты</a></div>
   <div class="pol"><a href="#">Политика обработки персональных данных</a></div>
  </div>
- <img class="fart" src="assets/ill/terrace-ink.webp" srcset="assets/ill/terrace-ink-m.webp 900w, assets/ill/terrace-ink.webp 1800w" sizes="100vw" alt="" loading="lazy" width="1800" height="1057">
+ <img class="fart" src="assets/ill/terrace-ink.webp" srcset="assets/ill/terrace-ink-m.webp 900w, assets/ill/terrace-ink.webp 1800w" sizes="100vw" alt="" loading="eager" decoding="async" width="1800" height="1057">
 </footer>
 
 <div class="sticky" id="sticky">
@@ -1492,12 +1490,7 @@ f.addEventListener('submit',function(e){
  addEventListener('keydown',function(){v=tv=0});
 })();
 
-/* гравюра футера: открыть сверху вниз, когда футер появился в экране */
-(function(){var f=document.querySelector('footer .fart');if(!f)return;
- function go(){f.classList.add('in')}
- if(!('IntersectionObserver' in window)){go();return}
- var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){go();o.disconnect()}},{threshold:.02});o.observe(document.querySelector('footer'));
- setTimeout(function(){if(scrollY+innerHeight>=document.documentElement.scrollHeight-4)go()},1500)})();
+
 
 /* крупная гравюра с полем: на широких экранах подменяем облегчённый файл на полный */
 (function(){var i=document.getElementById('lmi');if(i&&innerWidth>=720){var m=new Image();m.onload=function(){i.setAttribute('href','assets/ill/land-ink.webp')};m.src='assets/ill/land-ink.webp'}})();
