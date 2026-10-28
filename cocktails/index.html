@@ -1087,7 +1087,7 @@ var tk=false;addEventListener('scroll',function(){if(!tk){tk=true;requestAnimati
 
 /* редактор гравюр: открыть страницу с ?edit в адресе */
 (function(){
- var ED={d:{},m:{}};
+ var ED={"d":{"cocktails":{"x":11.3,"y":5.9,"s":2.57,"r":0,"f":0,"h":0},"zero":{"x":5.5,"y":-13.8,"s":3,"r":0,"f":0,"h":0},"land":{"x":0,"y":0,"s":1.03,"r":0,"f":0,"h":0},"tea":{"x":11.2,"y":16.9,"s":3,"r":33,"f":0,"h":0}},"m":{}};
  var els=[].slice.call(document.querySelectorAll('.mill,.mland,.gl'));if(!els.length)return;
  function nm(e){if(e.classList.contains('mill'))return e.closest('section').id;if(e.classList.contains('mland'))return 'land';return e.classList.contains('gl1')?'gl1':'gl2'}
  function lb(e){var n=nm(e);if(n==='land')return 'Большая гравюра (терраса)';if(n==='gl1')return 'Низ страницы: слева';if(n==='gl2')return 'Низ страницы: справа';var h=e.closest('section').querySelector('h2');return 'Раздел: '+(h?h.firstChild.textContent.trim():n)}
