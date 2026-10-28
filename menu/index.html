@@ -883,6 +883,9 @@ body{background:var(--paper)}
 .mcta2 .gl2{display:none}
 @media(min-width:900px){.mhero{min-height:70svh;padding:170px 0 80px}.mhero .frame{top:112px;left:22px;right:22px;bottom:22px}
  .mcta2 .gl{position:absolute;margin:0;top:50%;transform:translateY(-50%);height:min(240px,72%)}.mcta2 .gl1{left:max(16px,calc(50% - 700px))}.mcta2 .gl2{display:block;right:max(16px,calc(50% - 700px))}}
+/* позиции гравюр (задаются редактором ?edit) */
+.mill,.mland,.gl{translate:calc(var(--ox,0)*1vw) calc(var(--oy,0)*1vw);rotate:var(--dr,0deg);scale:var(--sx,1) var(--s,1)}
+main{overflow-x:clip}
 @media(min-width:720px){.mgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 22px}.mi h3{font-size:22px}.msec{padding-top:88px}.mnav{top:76px}}
 @media(min-width:1100px){.mgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(min-width:900px){.mnav .wrap{justify-content:center}}
@@ -1099,6 +1102,55 @@ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 var links=[].slice.call(document.querySelectorAll('.mnav a')),secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
 function spy(){var y=scrollY+190,cur=0;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});links.forEach(function(a,i){a.classList.toggle('on',i===cur)});var on=links[cur];if(on&&on.scrollIntoView&&on.parentElement.scrollWidth>on.parentElement.clientWidth){var p=on.parentElement;p.scrollTo({left:on.offsetLeft-p.clientWidth/2+on.offsetWidth/2,behavior:'smooth'})}}
 var tk=false;addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(function(){tk=false;spy()})}},{passive:true});spy();
+})();
+
+
+/* редактор гравюр: открыть страницу с ?edit в адресе */
+(function(){
+ var ED={d:{},m:{}};
+ var els=[].slice.call(document.querySelectorAll('.mill,.mland,.gl'));if(!els.length)return;
+ function nm(e){if(e.classList.contains('mill'))return e.closest('section').id;if(e.classList.contains('mland'))return 'land';return e.classList.contains('gl1')?'gl1':'gl2'}
+ function lb(e){var n=nm(e);if(n==='land')return 'Большая гравюра (терраса)';if(n==='gl1')return 'Низ страницы: слева';if(n==='gl2')return 'Низ страницы: справа';var h=e.closest('section').querySelector('h2');return 'Раздел: '+(h?h.firstChild.textContent.trim():n)}
+ var mq=matchMedia('(max-width:719px)');function bp(){return mq.matches?'m':'d'}
+ function ap(e,o){o=o||{};var st=e.style,sc=o.s||1;st.setProperty('--ox',o.x||0);st.setProperty('--oy',o.y||0);st.setProperty('--s',sc);st.setProperty('--sx',sc*(o.f?-1:1));st.setProperty('--dr',(o.r||0)+'deg');st.display=o.h?'none':''}
+ function all(){els.forEach(function(e){ap(e,(ED[bp()]||{})[nm(e)])})}
+ var KEY='vc-ed:'+location.pathname;
+ if(!/[?&]edit/.test(location.search)){all();addEventListener('resize',all);return}
+ try{var sv=JSON.parse(localStorage.getItem(KEY));if(sv&&sv.d&&sv.m)ED=sv}catch(e){}
+ var css=document.createElement('style');
+ css.textContent='.mill,.mland,.gl{outline:1px dashed #82472b;cursor:grab;touch-action:none;z-index:60}.mill img,.mland img,.gl{-webkit-user-drag:none}.mill,.mland{position:relative}.mland{-webkit-mask-image:none;mask-image:none}.sel{outline:2px solid #D08A66!important}#ed{position:fixed;right:8px;bottom:8px;z-index:9999;width:min(310px,calc(100vw - 16px));background:#221d19;color:#e6dac6;font:13px/1.4 Golos,sans-serif;padding:10px;border:1px solid #82472b}#ed label{color:#e6dac6;text-transform:none;letter-spacing:0;font-size:13px;display:grid;grid-template-columns:96px 1fr 44px;gap:6px;align-items:center;margin:4px 0}#ed input[type=range]{width:100%}#ed button,#ed select{background:#82472b;color:#e6dac6;border:0;padding:6px 8px;font:inherit;margin:0 4px 4px 0;cursor:pointer;max-width:100%}#ed select{background:#3a322c}#ed .row{display:flex;flex-wrap:wrap;align-items:center}#ed textarea{display:none;width:100%;height:80px;margin-top:6px;font:11px monospace;background:#120f0d;color:#e6dac6}#ed .hint{opacity:.7;margin-top:4px}#ed b{color:#D08A66}';
+ document.head.appendChild(css);
+ var d=document.createElement('div');d.id='ed';
+ d.innerHTML='<div class="row"><select id="edn"></select></div><div class="row"><b id="edm"></b></div>'+
+  '<label>Влево/вправо<input type="range" id="edx" min="-60" max="60" step=".1"><output></output></label>'+
+  '<label>Вверх/вниз<input type="range" id="edy" min="-60" max="60" step=".1"><output></output></label>'+
+  '<label>Размер<input type="range" id="eds" min=".2" max="3" step=".01"><output></output></label>'+
+  '<label>Поворот<input type="range" id="edt" min="-180" max="180" step="1"><output></output></label>'+
+  '<div class="row"><label style="display:flex;gap:6px;margin:0 10px 4px 0"><input type="checkbox" id="edf">Отзеркалить</label><label style="display:flex;gap:6px;margin:0 10px 4px 0"><input type="checkbox" id="edh">Скрыть</label></div>'+
+  '<div class="row"><button id="edr">Сбросить эту</button><button id="edc">Скопировать всё</button></div>'+
+  '<div class="hint">Тяните гравюру мышью или пальцем, колесо мыши меняет размер. Для телефона уменьшите ширину окна (до 719 px): настройки телефона и компьютера хранятся отдельно. Нажмите «Скопировать всё» и пришлите текст мне.</div><textarea id="edo" readonly></textarea>';
+ document.body.appendChild(d);
+ var $=function(i){return document.getElementById(i)},sel=els[0];
+ els.forEach(function(e,i){var o=document.createElement('option');o.value=i;o.textContent=lb(e);$('edn').appendChild(o);if(getComputedStyle(e).position==='static')e.style.position='relative'});
+ function cur(){var set=ED[bp()];return set[nm(sel)]||(set[nm(sel)]={x:0,y:0,s:1,r:0,f:0,h:0})}
+ function sync(){var o=cur();$('edx').value=o.x;$('edy').value=o.y;$('eds').value=o.s;$('edt').value=o.r;$('edf').checked=!!o.f;$('edh').checked=!!o.h;
+  [].forEach.call(d.querySelectorAll('output'),function(e,i){e.textContent=[o.x,o.y,o.s,o.r][i]});$('edm').textContent='Режим: '+(bp()==='m'?'телефон':'компьютер')}
+ function put(){ap(sel,cur());try{localStorage.setItem(KEY,JSON.stringify(ED))}catch(e){}sync()}
+ function pick(e){sel.classList.remove('sel');sel=e;e.classList.add('sel');$('edn').value=els.indexOf(e);sync()}
+ $('edn').onchange=function(){var e=els[this.value];pick(e);e.scrollIntoView({block:'center',behavior:'smooth'})};
+ [['edx','x'],['edy','y'],['eds','s'],['edt','r']].forEach(function(a){$(a[0]).oninput=function(){cur()[a[1]]=+this.value;put()}});
+ $('edf').onchange=function(){cur().f=this.checked?1:0;put()};
+ $('edh').onchange=function(){cur().h=this.checked?1:0;put()};
+ $('edr').onclick=function(){delete ED[bp()][nm(sel)];ap(sel,null);try{localStorage.setItem(KEY,JSON.stringify(ED))}catch(e){}sync()};
+ $('edc').onclick=function(){var t=JSON.stringify(ED),ta=$('edo');ta.style.display='block';ta.value=t;ta.select();try{navigator.clipboard.writeText(t).catch(function(){})}catch(e){}};
+ var dr=null;
+ els.forEach(function(e){
+  e.addEventListener('pointerdown',function(ev){pick(e);var o=cur();dr={x:ev.clientX,y:ev.clientY,ox:o.x,oy:o.y};e.setPointerCapture(ev.pointerId);e.style.cursor='grabbing';ev.preventDefault()});
+  e.addEventListener('pointermove',function(ev){if(!dr||sel!==e)return;var o=cur(),k=100/innerWidth;o.x=+(dr.ox+(ev.clientX-dr.x)*k).toFixed(1);o.y=+(dr.oy+(ev.clientY-dr.y)*k).toFixed(1);put()});
+  e.addEventListener('pointerup',function(){dr=null;e.style.cursor='grab'});
+  e.addEventListener('wheel',function(ev){ev.preventDefault();pick(e);var o=cur();o.s=+Math.max(.2,Math.min(3,o.s*(ev.deltaY<0?1.05:.95))).toFixed(2);put()},{passive:false})});
+ addEventListener('resize',function(){all();sync()});
+ all();pick(els[0]);
 })();
 
 /* плавная прокрутка колесом мыши с «доводкой»: скорость затухает, страница чуть доезжает после остановки (только десктоп, без reduced-motion) */
