@@ -815,6 +815,20 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
 .sticky .fab svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6}
 .sticky .fab:hover{background:var(--ink)}.sticky .fab:active{transform:scale(.94)}
 .sticky.hide{transform:translateY(140%)}
+
+/* ---- v3.4 ---- */
+.sticky{display:none!important}
+.af-h{justify-content:center;text-align:center}
+.cov{height:calc(var(--cw)*1.4 + 24px)}
+.cov .af-card h4,.cov .af-card .dt,.cov .af-card .go{display:none}
+.af-cap{text-align:center;margin-top:6px}
+.af-cap h4{font-family:VidaSerif,serif;font-weight:400;font-size:21px;line-height:1.2;margin:0 0 6px}
+.af-cap .dt{font-family:VidaSerif,serif;font-style:italic;color:var(--clay);font-size:17px;margin:0}
+.af-cap.past .dt:after{content:"прошло";display:block;color:var(--mute);font-style:normal;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.af-cap .go{display:inline-block;margin-top:14px;background:var(--clay);color:var(--paper);padding:0 28px;min-height:46px;line-height:46px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:background .25s}
+.af-cap .go:hover{background:var(--ink);color:var(--paper)}
+@media(max-width:899px){.bar .row .btn{display:flex;width:max-content;margin-left:auto;margin-right:auto}}
+@media(min-width:720px){.vids{gap:16px;max-width:none;margin:0}.vids .vcard,.vids .vcard.act,.vids .vcard:not(.act){flex:1;transform:none;opacity:1}}
 </style>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Где находится ресторан и как найти вход?", "acceptedAnswer": {"@type": "Answer", "text": "Адрес: 142000, Домодедово, мкр. Западный, ул. Лунная, стр. 4, 3 этаж. Вход через бизнес-центр «Лунная Line»."}}, {"@type": "Question", "name": "Есть ли парковка?", "acceptedAnswer": {"@type": "Answer", "text": "Да, парковка находится рядом с бизнес-центром."}}, {"@type": "Question", "name": "Как забронировать стол?", "acceptedAnswer": {"@type": "Answer", "text": "Заполните форму на сайте, позвоните или напишите в Telegram. Укажите дату, время и число гостей, мы подтвердим бронь."}}, {"@type": "Question", "name": "Можно ли выбрать веранду?", "acceptedAnswer": {"@type": "Answer", "text": "Да, напишите «веранда» в комментарии к заявке. Веранда летняя, наличие мест мы уточним при подтверждении брони."}}, {"@type": "Question", "name": "Проводите ли вы банкеты и дни рождения?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Подберём зал и стол, составим меню под повод и подключим музыку. Условия расскажем по телефону."}}, {"@type": "Question", "name": "Бывает ли живая музыка?", "acceptedAnswer": {"@type": "Answer", "text": "По вечерам играют диджеи и приглашённые музыканты. Программу уточняйте у администратора."}}, {"@type": "Question", "name": "До скольки работает кухня?", "acceptedAnswer": {"@type": "Answer", "text": "Пн-Чт кухня работает до 22:00, Пт-Вс до 23:00. Зал открыт Пн-Чт до 23:00, Пт-Вс до 01:00."}}]}
@@ -1048,6 +1062,7 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
  <div class="afisha rv">
    <div class="af-h"><h3>Афиша <em>вечеров</em></h3></div>
    <div class="cov" id="cov" tabindex="0" aria-roledescription="карусель" aria-label="Афиша вечеров"><a class="af-card" data-date="2026-06-17" href="#booking" data-goal="booking_click" data-event="1"><div class="ph"><img src="assets/img/p1.webp" alt="Афиша: Вечер вкусов. Дегустация, среда, 17 июня, 19:00–21:00" loading="lazy" width="800" height="1200"></div><h4>Вечер вкусов. Дегустация</h4><p class="dt">среда, 17 июня, 19:00–21:00</p><span class="go lnk">Записаться</span></a><a class="af-card" data-date="2026-04-29" href="#booking" data-goal="booking_click" data-event="1"><div class="ph"><img src="assets/img/p2.webp" alt="Афиша: DJ set, среда, 29 апреля, 19:00–22:00" loading="lazy" width="800" height="1067"></div><h4>DJ set</h4><p class="dt">среда, 29 апреля, 19:00–22:00</p><span class="go lnk">Записаться</span></a><a class="af-card" data-date="2026-05-01" href="#booking" data-goal="booking_click" data-event="1"><div class="ph"><img src="assets/img/p3.webp" alt="Афиша: Винное казино, пятница, 1 мая, 20:00" loading="lazy" width="800" height="1067"></div><h4>Винное казино</h4><p class="dt">пятница, 1 мая, 20:00</p><span class="go lnk">Записаться</span></a><a class="af-card" data-date="2026-04-30" href="#booking" data-goal="booking_click" data-event="1"><div class="ph"><img src="assets/img/p4.webp" alt="Афиша: Грузинские вина, четверг, 30 апреля, 20:00" loading="lazy" width="800" height="1067"></div><h4>Грузинские вина</h4><p class="dt">четверг, 30 апреля, 20:00</p><span class="go lnk">Записаться</span></a></div>
+   <div class="af-cap" id="afcap" aria-live="polite"><h4></h4><p class="dt"></p><a class="go" href="#booking" data-goal="booking_click" data-event="1">Записаться</a></div>
   </div>
   <div class="vids">
    <div class="vcard rv" data-v="v3863" tabindex="0" role="button" aria-label="Смотреть видео: вечера с музыкой"><img src="assets/video/v3863.jpg" alt="" loading="lazy" width="540" height="960"><span class="play"></span><span class="cap">Вечера с музыкой</span></div>
@@ -1173,8 +1188,6 @@ footer .fart{display:block;position:relative;z-index:1;width:100%;height:auto;ma
  </div>
  <img class="fart" src="assets/ill/terrace-ink.webp" srcset="assets/ill/terrace-ink-m.webp 900w, assets/ill/terrace-ink.webp 1800w" sizes="100vw" alt="" loading="eager" decoding="async" width="1800" height="1057">
 </footer>
-
-<div class="sticky" id="sticky"><a class="fab" href="tel:+70000000000" aria-label="Позвонить" data-goal="phone_click"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></a></div>
 
 <script>
 (function(){
@@ -1317,7 +1330,7 @@ var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(fixAl
 /* header, drawer, sticky */
 var hdr=document.getElementById('hdr'),b=document.getElementById('burger'),hb=document.getElementById('hbtn'),stk=document.getElementById('sticky'),bk=document.getElementById('booking');
 function onScroll(){hdr.classList.toggle('solid',scrollY>40);
- var r=bk.getBoundingClientRect();stk.classList.toggle('hide',scrollY<400||(r.top<innerHeight&&r.bottom>0))}
+ var r=bk.getBoundingClientRect();if(stk)stk.classList.toggle('hide',scrollY<400||(r.top<innerHeight&&r.bottom>0))}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 
 b.addEventListener('click',function(){var o=document.body.classList.toggle('menu-open');b.setAttribute('aria-expanded',o)});
@@ -1347,7 +1360,7 @@ document.querySelector('.car .next').onclick=function(){tr.scrollBy({left:tr.cli
 
 /* form */
 var f=document.getElementById('form'),ok=document.getElementById('ok');
-document.querySelector('[data-event]').addEventListener('click',function(){var c=f.elements.comment;if(!c.value)c.value='Хочу обсудить мероприятие'});
+document.addEventListener('click',function(e){if(!e.target.closest('[data-event]'))return;var c=f.elements.comment;if(!c.value)c.value='Хочу обсудить мероприятие'});
 f.addEventListener('submit',function(e){
  e.preventDefault();
  var bad=false;['name','phone','date','time'].forEach(function(n){var i=f.elements[n];var empty=!i.value.trim();i.style.borderBottomColor=empty?'#a33b2b':'';if(empty)bad=true});
@@ -1372,11 +1385,16 @@ f.addEventListener('submit',function(e){
  var base=[].slice.call(st.querySelectorAll('.af-card')).filter(function(c){return !c.hidden});base.forEach(function(c){var d=c.cloneNode(true);d.setAttribute('aria-hidden','true');d.tabIndex=-1;st.appendChild(d)});
  var cs=[].slice.call(st.querySelectorAll('.af-card')).filter(function(c){return !c.hidden}),n=cs.length,a=0,timer=null,drag=null,moved=false;
  var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ var capEl=document.getElementById('afcap'),capC=null;
+ function cap(c){if(!capEl||capC===c)return;var first=capC===null;capC=c;
+  function fill(){capEl.querySelector('h4').textContent=c.querySelector('h4').textContent;capEl.querySelector('.dt').textContent=c.querySelector('.dt').textContent;capEl.classList.toggle('past',c.classList.contains('past'))}
+  if(first||rm||!capEl.animate){fill();return}
+  var t=capEl.animate([{opacity:1},{opacity:0}],{duration:160,fill:'forwards'});t.onfinish=function(){fill();capEl.animate([{opacity:0},{opacity:1}],{duration:260,fill:'forwards'})}}
  function cw(){return cs[0].offsetWidth}
  function lay(){var w=cw();cs.forEach(function(c,i){var o=((i-a+Math.floor(n/2)+n*3)%n)-Math.floor(n/2);var ab=Math.abs(o);var jump=c._o!==undefined&&Math.abs(o-c._o)>3;c._o=o;if(jump){c.style.transition='none'}
   var x=o*w*(innerWidth<720?.9:1.03),z=-Math.min(ab,3)*150,ry=-o*Math.min(ab,1)*36,sc=ab===0?1:(ab===1?.86:.74),op=ab===0?1:(ab===1?.85:(ab===2?.5:0));
   c.style.transform='translate3d('+x+'px,0,'+z+'px) rotateY('+ry+'deg) scale('+sc+')';c.style.opacity=op;c.style.zIndex=10-ab;
-  if(jump){c.offsetWidth;c.style.transition=''}c.style.pointerEvents=ab>2?'none':'auto';c.classList.toggle('on',ab===0);if(!c._cl)c.setAttribute('aria-hidden',ab>1?'true':'false');c.tabIndex=ab===0?0:-1})}
+  if(jump){c.offsetWidth;c.style.transition=''}c.style.pointerEvents=ab>2?'none':'auto';c.classList.toggle('on',ab===0);if(ab===0)cap(c);if(!c._cl)c.setAttribute('aria-hidden',ab>1?'true':'false');c.tabIndex=ab===0?0:-1})}
  function go(d){a=(a+d+n)%n;lay()}
  function sel(i){a=i;lay()}
  document.querySelectorAll('.af-b').forEach(function(b){b.disabled=n<2;b.addEventListener('click',function(){go(+b.dataset.d);stop()})});
@@ -1390,8 +1408,8 @@ f.addEventListener('submit',function(e){
  st.addEventListener('focusin',stop);
  addEventListener('resize',lay);lay();
  if('IntersectionObserver' in window){new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis)play();else{clearInterval(timer);timer=null}},{threshold:.4}).observe(st)}else play()})();
-/* параллакс междублочий (на телефоне выключен) */
-(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches||innerWidth<720)return;
+/* параллакс междублочий */
+(function(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
  var bs=[].slice.call(document.querySelectorAll('.pband')),tk=false;
  function run(){tk=false;var vh=innerHeight;bs.forEach(function(b){var r=b.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;
   var p=(r.top+r.height/2-vh/2)/(vh/2+r.height/2);p=Math.max(-1,Math.min(1,p));
@@ -1534,7 +1552,7 @@ f.addEventListener('submit',function(e){
  function init(){if(mob.matches){var c=cs[1];v.scrollLeft=c.offsetLeft-(v.clientWidth-c.offsetWidth)/2;set(near())}else set(cs[1])}
  init();addEventListener('load',init);
  v.addEventListener('scroll',function(){if(mob.matches)set(near())},{passive:true});
- cs.forEach(function(c){c.addEventListener('click',function(){set(c)});c.addEventListener('mouseenter',function(){if(!mob.matches)set(c)})});
+ cs.forEach(function(c){c.addEventListener('click',function(){set(c)});});
 })();
 </script>
 </body>
